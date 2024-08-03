@@ -2,6 +2,7 @@ package com.duyts.tasks.repository
 
 import com.duyts.tasks.model.LocalUserAuthentication
 import com.duyts.tasks.model.UserData
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import kotlinx.coroutines.flow.Flow
 
 interface AuthenticateRepository {
@@ -9,4 +10,5 @@ interface AuthenticateRepository {
 	fun getUserData(): Flow<LocalUserAuthentication>
 	fun isAuthenticated(): Flow<Boolean>
 	suspend fun logout()
+	suspend fun loginWithGoogle(account: GoogleSignInAccount)
 }

@@ -110,4 +110,8 @@ dependencies {
 	implementation  (libs.protobuf.kotlin.lite)
 
 	implementation (libs.androidx.core.splashscreen)
+
+	//Glide
+	implementation (libs.glide)
+	implementation (libs.glide.compose)
 }

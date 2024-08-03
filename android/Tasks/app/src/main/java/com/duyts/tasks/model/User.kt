@@ -11,4 +11,5 @@ data class LocalUserAuthentication(
 	val passwordHash: String,
 	val authToken: String,
 	val displayName: String,
+	val photoUrl: String,
 )

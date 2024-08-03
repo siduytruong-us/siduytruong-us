@@ -22,10 +22,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.integration.compose.Placeholder
+import com.bumptech.glide.integration.compose.placeholder
+import com.duyts.tasks.R
 import com.duyts.tasks.feature.profile.ProfileItem.*
 
 @Composable
@@ -50,7 +56,8 @@ fun ProfileScreen(
 					EDIT_PROFILE -> onNavigateToEditProfile?.invoke()
 					SETTING -> onNavigateToSetting?.invoke()
 					LOG_OUT -> {
-						 viewModel.logout()
+						viewModel.logout()
+						onLogout?.invoke()
 					}
 				}
 			}
@@ -58,6 +65,7 @@ fun ProfileScreen(
 	}
 }
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 private fun ProfileHeader(state: ProfileScreenUiState) {
 	when (state) {
@@ -68,8 +76,10 @@ private fun ProfileHeader(state: ProfileScreenUiState) {
 				modifier = Modifier.fillMaxWidth(),
 				horizontalAlignment = Alignment.CenterHorizontally
 			) {
-				Image(
-					imageVector = Icons.Default.Person, contentDescription = null,
+				GlideImage(
+					model = userData.photoUrl,
+					loading = placeholder(rememberVectorPainter(image = Icons.Default.Person)),
+					contentDescription = null,
 					modifier = Modifier.size(100.dp)
 				)
 				Text(text = userData.displayName)

@@ -17,7 +17,8 @@ class UserAuthenticationDataSource @Inject constructor(
 			email = userAuth.email,
 			passwordHash = userAuth.passwordHash,
 			displayName = userAuth.displayName,
-			authToken = userAuth.authToken
+			authToken = userAuth.authToken,
+			photoUrl = userAuth.photoUrl
 		)
 	}
 

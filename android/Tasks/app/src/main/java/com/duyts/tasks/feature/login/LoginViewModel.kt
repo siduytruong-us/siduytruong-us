@@ -1,13 +1,13 @@
 package com.duyts.tasks.feature.login
 
-import androidx.core.content.ContextCompat.getString
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.duyts.tasks.R
 import com.duyts.tasks.core.AppDispatcher
 import com.duyts.tasks.core.Dispatcher
 import com.duyts.tasks.repository.AuthenticateRepositoryImpl
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -48,9 +48,18 @@ class LoginViewModel @Inject constructor(
 			update { it.copy(isLoading = false) }
 		}
 	}
-	fun loginWithGoogle() = viewModelScope.launch {
 
+
+	fun loginWithGoogle(task: Task<GoogleSignInAccount>?) = viewModelScope.launch {
+		_loginUiState.apply {
+			update { it.copy(isLoading = true) }
+			task?.getResult(ApiException::class.java)?.let { account ->
+				authenticateRepo.loginWithGoogle(account)
+			}
+			update { it.copy(isLoading = false) }
+		}
 	}
+
 }
 
 data class LoginUiState(

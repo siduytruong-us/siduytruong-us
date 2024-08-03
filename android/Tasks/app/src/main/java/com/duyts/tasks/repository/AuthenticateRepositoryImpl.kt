@@ -3,6 +3,7 @@ package com.duyts.tasks.repository
 import com.duyts.tasks.core.BackgroundScope
 import com.duyts.tasks.datasource.datastore.authen.UserAuthenticationDataSource
 import com.duyts.tasks.model.LocalUserAuthentication
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
@@ -44,5 +45,11 @@ class AuthenticateRepositoryImpl @Inject constructor(
 	override suspend fun logout() {
 		userAuthDataStore.clear()
 		firebaseAuth.signOut()
+	}
+
+	override suspend fun loginWithGoogle(account: GoogleSignInAccount) = account.run {
+		userAuthDataStore.setEmail(email)
+		userAuthDataStore.setDisplayName(displayName)
+		userAuthDataStore.setPhotoUrl(photoUrl?.toString())
 	}
 }

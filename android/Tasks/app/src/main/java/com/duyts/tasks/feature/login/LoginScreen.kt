@@ -1,7 +1,7 @@
 package com.duyts.tasks.feature.login
 
 import android.widget.Toast
-import androidx.compose.foundation.background
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,12 +14,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -37,7 +34,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,16 +41,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.duyts.tasks.component.LoadingSpinner
+import com.duyts.tasks.signin.GoogleAuthResultContract
+import com.google.android.gms.common.api.ApiException
 
-private val LOGIN_ITEMS = listOf("FB", "APPLE", "GOOGLE")
 
+private const val GOOGLE_AUTH_REQUEST_CODE = 1
 @Composable
 fun LoginScreen(
 	loginViewModel: LoginViewModel = hiltViewModel(),
 	onAuthSuccess: () -> Unit = {}
 ) {
+
 	val uiState = loginViewModel.loginUiState.collectAsState().value
 	val context = LocalContext.current
+	val startForResult =
+		rememberLauncherForActivityResult(
+			contract = GoogleAuthResultContract()
+		) { task ->
+			loginViewModel.loginWithGoogle(task)
+			onAuthSuccess.invoke()
+		}
 	LaunchedEffect(uiState.isAuthenticated) {
 		if (uiState.isAuthenticated) {
 			onAuthSuccess.invoke()
@@ -146,8 +152,10 @@ fun LoginScreen(
 					horizontalArrangement = Arrangement.SpaceEvenly
 				) {
 
-					LOGIN_ITEMS.map {
-						IconButton(onClick = { /*TODO*/ }) {
+					LoginType.entries.map {
+						IconButton(onClick = {
+							startForResult.launch(GOOGLE_AUTH_REQUEST_CODE)
+						}) {
 							Icon(imageVector = Icons.Default.Person, contentDescription = null)
 						}
 					}

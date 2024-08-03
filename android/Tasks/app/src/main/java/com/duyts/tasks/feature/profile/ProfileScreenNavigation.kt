@@ -11,8 +11,10 @@ fun NavController.navigateToProfileScreen(navOptions: NavOptions) {
 	navigate(PROFILE_SCREEN_ROUTE, navOptions)
 }
 
-fun NavGraphBuilder.profileScreen() {
+fun NavGraphBuilder.profileScreen(onLogout: (() -> Unit)) {
 	composable(PROFILE_SCREEN_ROUTE) {
-		ProfileScreen()
+		ProfileScreen(
+			onLogout = onLogout
+		)
 	}
 }

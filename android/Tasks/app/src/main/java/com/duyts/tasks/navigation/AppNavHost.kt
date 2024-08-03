@@ -26,9 +26,7 @@ fun AppNavHost(
 				if (isAuthenticated) {
 					appState.navigateToTopLevelDestination(TopLevelDestination.HOME)
 				} else {
-					navController.navigateToLoginScreen {
-						popUpTo(SPLASH_ROUTE) { inclusive = true }
-					}
+					navController.navigateToLoginScreen()
 				}
 			}
 		)
@@ -42,7 +40,7 @@ fun AppNavHost(
 			onBack = navController::popBackStack
 		)
 
-		profileScreen()
+		profileScreen(onLogout = navController::navigateToLoginScreen)
 
 		loginScreen(
 			onAuthSuccess = { appState.navigateToTopLevelDestination(TopLevelDestination.HOME) }
