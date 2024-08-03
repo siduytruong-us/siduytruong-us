@@ -1,0 +1,139 @@
+package com.duyts.tasks.feature.profile
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.duyts.tasks.feature.profile.ProfileItem.*
+
+@Composable
+fun ProfileScreen(
+	viewModel: ProfileScreenViewModel = hiltViewModel(),
+	onNavigateToEditProfile: (() -> Unit)? = null,
+	onNavigateToSetting: (() -> Unit)? = null,
+	onLogout: (() -> Unit)? = null,
+) {
+	val state = viewModel.state.collectAsState().value
+
+	Column(
+		modifier = Modifier
+			.fillMaxSize()
+			.padding(top = 30.dp)
+	) {
+		ProfileHeader(state)
+		Spacer(modifier = Modifier.height(20.dp))
+		ProfileItems(
+			onClick = { profileItem ->
+				when (profileItem) {
+					EDIT_PROFILE -> onNavigateToEditProfile?.invoke()
+					SETTING -> onNavigateToSetting?.invoke()
+					LOG_OUT -> {
+						 viewModel.logout()
+					}
+				}
+			}
+		)
+	}
+}
+
+@Composable
+private fun ProfileHeader(state: ProfileScreenUiState) {
+	when (state) {
+
+		is ProfileScreenUiState.Success -> {
+			val userData = state.userData
+			Column(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalAlignment = Alignment.CenterHorizontally
+			) {
+				Image(
+					imageVector = Icons.Default.Person, contentDescription = null,
+					modifier = Modifier.size(100.dp)
+				)
+				Text(text = userData.displayName)
+				Text(text = userData.email)
+			}
+		}
+
+		ProfileScreenUiState.Loading -> {
+			//skeleton here
+		}
+	}
+
+}
+
+@Composable
+private fun ProfileItems(onClick: (ProfileItem) -> Unit) {
+	Column(
+		modifier = Modifier.fillMaxWidth(),
+		verticalArrangement = Arrangement.Center
+	) {
+		LazyColumn {
+			items(ProfileItem.entries, key = { item -> item.hashCode() }) { item ->
+				ProfileItemComponent(item, onClick)
+			}
+		}
+	}
+}
+
+
+@Composable
+private fun ProfileItemComponent(
+	item: ProfileItem, onClick: (ProfileItem) -> Unit
+) {
+	Row(
+		modifier = Modifier
+			.fillMaxWidth()
+			.clickable { onClick.invoke(item) }
+			.padding(10.dp),
+		horizontalArrangement = Arrangement.SpaceBetween
+	) {
+		Row(
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			Image(
+				imageVector = item.icon, contentDescription = null,
+				modifier = Modifier
+					.size(30.dp)
+					.padding(4.dp),
+				colorFilter = ColorFilter.tint(item.color)
+			)
+			Text(
+				text = item.title,
+				style = TextStyle.Default.copy(color = item.color)
+			)
+		}
+		Image(
+			imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null,
+			modifier = Modifier.size(30.dp)
+		)
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ProfileScreenReview() {
+	ProfileScreen()
+}
