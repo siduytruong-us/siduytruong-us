@@ -2,6 +2,7 @@ package com.duyts.tasks.ui.theme
 
 import android.app.Activity
 import android.os.Build
+import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -40,12 +41,12 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun TasksTheme(
 	darkTheme: Boolean = isSystemInDarkTheme(),
-	// Dynamic color is available on Android 12+
-	dynamicColor: Boolean = true,
+	androidTheme: Boolean = false,
+	disableDynamicTheming: Boolean = true,
 	content: @Composable () -> Unit
 ) {
 	val colorScheme = when {
-		dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+		!disableDynamicTheming && supportsDynamicTheming()  -> {
 			val context = LocalContext.current
 			if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
 		}
@@ -68,3 +69,7 @@ fun TasksTheme(
 		content = content
 	)
 }
+
+
+@ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
+fun supportsDynamicTheming() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S

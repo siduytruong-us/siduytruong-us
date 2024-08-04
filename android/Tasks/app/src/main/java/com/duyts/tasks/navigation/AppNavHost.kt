@@ -40,7 +40,9 @@ fun AppNavHost(
 			onBack = navController::popBackStack
 		)
 
-		profileScreen(onLogout = navController::navigateToLoginScreen)
+		profileScreen(
+			onLogout = navController::navigateToLoginScreen,
+		)
 
 		loginScreen(
 			onAuthSuccess = { appState.navigateToTopLevelDestination(TopLevelDestination.HOME) }

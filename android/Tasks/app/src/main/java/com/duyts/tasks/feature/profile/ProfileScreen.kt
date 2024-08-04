@@ -19,6 +19,10 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
@@ -33,6 +37,7 @@ import com.bumptech.glide.integration.compose.Placeholder
 import com.bumptech.glide.integration.compose.placeholder
 import com.duyts.tasks.R
 import com.duyts.tasks.feature.profile.ProfileItem.*
+import com.duyts.tasks.feature.setting.SettingsDialog
 
 @Composable
 fun ProfileScreen(
@@ -42,7 +47,11 @@ fun ProfileScreen(
 	onLogout: (() -> Unit)? = null,
 ) {
 	val state = viewModel.state.collectAsState().value
+	var showSettingsDialog by rememberSaveable { mutableStateOf(false) }
 
+	if (showSettingsDialog) {
+		SettingsDialog(onDismiss = { showSettingsDialog = false })
+	}
 	Column(
 		modifier = Modifier
 			.fillMaxSize()
@@ -54,7 +63,7 @@ fun ProfileScreen(
 			onClick = { profileItem ->
 				when (profileItem) {
 					EDIT_PROFILE -> onNavigateToEditProfile?.invoke()
-					SETTING -> onNavigateToSetting?.invoke()
+					SETTING -> showSettingsDialog = true
 					LOG_OUT -> {
 						viewModel.logout()
 						onLogout?.invoke()

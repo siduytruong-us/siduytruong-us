@@ -1,32 +1,76 @@
 package com.duyts.tasks.datasource.datastore.preference
 
-import android.util.Log
 import androidx.datastore.core.DataStore
+import com.duyts.tasks.datastore.DarkThemeConfigProto
+import com.duyts.tasks.datastore.ThemeBrandProto
 import com.duyts.tasks.datastore.UserPreferences
 import com.duyts.tasks.datastore.copy
+import com.duyts.tasks.feature.setting.DarkThemeConfig
+import com.duyts.tasks.feature.setting.ThemeBrand
 import com.duyts.tasks.model.UserData
 import kotlinx.coroutines.flow.map
-import java.io.IOException
 import javax.inject.Inject
 
 class UserPreferenceDataSource @Inject constructor(
 	private val userPreferences: DataStore<UserPreferences>
 ) {
 	val userData = userPreferences.data.map { userPref ->
-		UserData(userPref.email)
+		UserData(
+			useDynamicColor = userPref.useDynamicColor,
+			themeBrand = when (userPref.themeBrand) {
+				null,
+				ThemeBrandProto.THEME_BRAND_UNSPECIFIED,
+				ThemeBrandProto.UNRECOGNIZED,
+				ThemeBrandProto.THEME_BRAND_DEFAULT,
+				-> ThemeBrand.DEFAULT
+
+				ThemeBrandProto.THEME_BRAND_ANDROID -> ThemeBrand.ANDROID
+			},
+			darkThemeConfig = when (userPref.darkThemeConfig) {
+				null,
+				DarkThemeConfigProto.DARK_THEME_CONFIG_UNSPECIFIED,
+				DarkThemeConfigProto.UNRECOGNIZED,
+				DarkThemeConfigProto.DARK_THEME_CONFIG_FOLLOW_SYSTEM,
+				->
+					DarkThemeConfig.FOLLOW_SYSTEM
+
+				DarkThemeConfigProto.DARK_THEME_CONFIG_LIGHT ->
+					DarkThemeConfig.LIGHT
+
+				DarkThemeConfigProto.DARK_THEME_CONFIG_DARK -> DarkThemeConfig.DARK
+			}
+		)
 	}
 
-	suspend fun setEmail(email: String) {
-		try {
-			userPreferences.updateData {
-				it.copy {
-					this.email = email
-				}
-			}
-		} catch (ioException: IOException) {
-			Log.e("UserPreferences", "Failed to update user email preferences", ioException)
+
+	suspend fun setDynamicColorPreference(useDynamicColor: Boolean) {
+		userPreferences.updateData {
+			it.copy { this.useDynamicColor = useDynamicColor }
 		}
 	}
 
+	suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
+		userPreferences.updateData {
+			it.copy {
+				this.darkThemeConfig = when (darkThemeConfig) {
+					DarkThemeConfig.FOLLOW_SYSTEM ->
+						DarkThemeConfigProto.DARK_THEME_CONFIG_FOLLOW_SYSTEM
 
+					DarkThemeConfig.LIGHT -> DarkThemeConfigProto.DARK_THEME_CONFIG_LIGHT
+					DarkThemeConfig.DARK -> DarkThemeConfigProto.DARK_THEME_CONFIG_DARK
+				}
+			}
+		}
+	}
+
+	suspend fun setThemeBrand(themeBrand: ThemeBrand) {
+		userPreferences.updateData {
+			it.copy {
+				this.themeBrand = when (themeBrand) {
+					ThemeBrand.DEFAULT -> ThemeBrandProto.THEME_BRAND_DEFAULT
+					ThemeBrand.ANDROID -> ThemeBrandProto.THEME_BRAND_ANDROID
+				}
+			}
+		}
+	}
 }
