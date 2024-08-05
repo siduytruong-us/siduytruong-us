@@ -12,8 +12,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.duyts.tasks.feature.setting.DarkThemeConfig
-import com.duyts.tasks.feature.setting.ThemeBrand
+import com.duyts.core.datastore.enum.DarkThemeConfig
+import com.duyts.core.datastore.enum.ThemeBrand
+
 import com.duyts.tasks.ui.MainApp
 import com.duyts.tasks.ui.theme.TasksTheme
 import dagger.hilt.android.AndroidEntryPoint

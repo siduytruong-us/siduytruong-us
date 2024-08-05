@@ -3,8 +3,8 @@ package com.duyts.tasks.feature.taskdetail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.duyts.tasks.model.Task
-import com.duyts.tasks.repository.TaskRepositoryImpl
+import com.duyts.core.data.model.Task
+import com.duyts.core.data.repository.TaskRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,9 +1,10 @@
 package com.duyts.tasks.repository
 
-import com.duyts.tasks.datasource.datastore.preference.UserPreferenceDataSource
-import com.duyts.tasks.feature.setting.DarkThemeConfig
-import com.duyts.tasks.feature.setting.ThemeBrand
-import com.duyts.tasks.model.UserData
+import com.duyts.core.datastore.enum.DarkThemeConfig
+import com.duyts.core.datastore.enum.ThemeBrand
+import com.duyts.core.datastore.model.UserData
+import com.duyts.core.datastore.preferences.UserPreferenceDataSource
+
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -21,4 +21,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "Tasks"
 include(":app")
- 
+
+include(":core:common")
+include(":core:data")
+include(":core:network")
+include(":core:domain")
+include(":core:database")
+include(":core:datastore")

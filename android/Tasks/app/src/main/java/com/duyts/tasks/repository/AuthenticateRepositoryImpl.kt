@@ -1,8 +1,8 @@
 package com.duyts.tasks.repository
 
-import com.duyts.tasks.core.BackgroundScope
-import com.duyts.tasks.datasource.datastore.authen.UserAuthenticationDataSource
-import com.duyts.tasks.model.LocalUserAuthentication
+import com.duyts.core.common.BackgroundScope
+import com.duyts.core.datastore.auth.UserAuthenticationDataSource
+import com.duyts.core.datastore.model.UserAuthData
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-import kotlin.Exception
 
 class AuthenticateRepositoryImpl @Inject constructor(
 	private val userAuthDataStore: UserAuthenticationDataSource,
@@ -37,7 +36,7 @@ class AuthenticateRepositoryImpl @Inject constructor(
 			}
 		}.await()
 
-	override fun getUserData(): Flow<LocalUserAuthentication> = userAuthDataStore.data
+	override fun getUserData(): Flow<UserAuthData> = userAuthDataStore.data
 	override fun isAuthenticated(): Flow<Boolean> = userAuthDataStore.data.map {
 		it.email.isNotEmpty()
 	}

@@ -15,6 +15,5 @@ enum class ProfileItem(
 ) {
 	EDIT_PROFILE("Edit Profile", Icons.Filled.Edit, Color.Blue),
 	SETTING("Settings", Icons.Filled.Settings, Color.Blue),
-	LOG_OUT("Logout", Icons.AutoMirrored.Filled.ExitToApp, Color.Red),
-
+	LOG_OUT("Logout", Icons.AutoMirrored.Filled.ExitToApp, Color.Red)
 }

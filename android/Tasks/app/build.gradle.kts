@@ -4,7 +4,6 @@ plugins {
 	alias(libs.plugins.ksp)
 	alias(libs.plugins.hilt.gradle)
 	alias(libs.plugins.google.services)
-	alias(libs.plugins.protobuf)
 }
 
 android {
@@ -53,25 +52,6 @@ android {
 	}
 }
 
-// Setup protobuf configuration, generating lite Java and Kotlin classes
-protobuf {
-	protoc {
-		artifact = libs.protobuf.protoc.get().toString()
-	}
-	generateProtoTasks {
-		all().forEach { task ->
-			task.builtins {
-				register("java") {
-					option("lite")
-				}
-				register("kotlin") {
-					option("lite")
-				}
-			}
-		}
-	}
-}
-
 dependencies {
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -115,4 +95,8 @@ dependencies {
 	//Glide
 	implementation (libs.glide)
 	implementation (libs.glide.compose)
+
+	implementation(project(":core:database"))
+	implementation(project(":core:data"))
+	implementation(project(":core:datastore"))
 }

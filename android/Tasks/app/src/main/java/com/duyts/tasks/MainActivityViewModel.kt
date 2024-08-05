@@ -2,7 +2,7 @@ package com.duyts.tasks
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.duyts.tasks.model.UserData
+import com.duyts.core.datastore.model.UserData
 import com.duyts.tasks.repository.UserDataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted

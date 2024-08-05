@@ -5,4 +5,13 @@ plugins {
 	alias(libs.plugins.ksp) apply false
 	alias(libs.plugins.hilt.gradle) apply false
 	alias(libs.plugins.google.services) apply false
+	alias(libs.plugins.androidLibrary) apply false
+}
+
+tasks.register("printModulePaths") {
+	subprojects {
+		if (subprojects.size == 0) {
+			println(this.path)
+		}
+	}
 }

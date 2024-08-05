@@ -2,8 +2,8 @@ package com.duyts.tasks.feature.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.duyts.tasks.core.AppDispatcher
-import com.duyts.tasks.core.Dispatcher
+import com.duyts.core.common.network.AppDispatchers
+import com.duyts.core.common.network.Dispatcher
 import com.duyts.tasks.repository.AuthenticateRepositoryImpl
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
 	private val authenticateRepo: AuthenticateRepositoryImpl,
-	@Dispatcher(AppDispatcher.IO) private val dispatcher: CoroutineDispatcher,
+	@Dispatcher(AppDispatchers.IO) private val dispatcher: CoroutineDispatcher,
 ) : ViewModel() {
 	private val _loginUiState = MutableStateFlow(LoginUiState())
 	val loginUiState = _loginUiState
