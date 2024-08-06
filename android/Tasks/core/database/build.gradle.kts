@@ -2,7 +2,6 @@ plugins {
 	alias(libs.plugins.androidLibrary)
 	alias(libs.plugins.jetbrainsKotlinAndroid)
 	alias(libs.plugins.ksp)
-	alias(libs.plugins.hilt.gradle)
 }
 
 android {
@@ -19,11 +18,11 @@ android {
 }
 
 dependencies {
+	api(project(":core:common"))
 	//Room
 	implementation(libs.room.runtime)
 	implementation(libs.room.ktx)
 	ksp(libs.androidx.room.compiler)
 	//Hilt
-	implementation(libs.hilt.android)
 	ksp(libs.hilt.compiler)
 }
