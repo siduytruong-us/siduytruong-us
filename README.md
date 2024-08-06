@@ -4,7 +4,7 @@
         
 - 3.4 GPA for Bachelor's Degree and 3.6 GPA for Master of Computer Science
 - 💻 Solved over 600+ LeetCode problems 
-- 🔗 You can see my [Linkedin]([https://www.linkedin.com/in/ataturhan/](https://www.linkedin.com/in/siduytruong/))
+- 🔗 You can see my [Linkedin](https://www.linkedin.com/in/siduytruong/)
 - 📫 You can reach me via duytruong0702.us@gmail.com
 
 </div>
