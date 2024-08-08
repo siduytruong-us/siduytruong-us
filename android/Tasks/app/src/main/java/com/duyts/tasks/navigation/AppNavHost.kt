@@ -3,13 +3,12 @@ package com.duyts.tasks.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
+import com.duyts.features.splash.*
 import com.duyts.tasks.AppState
 import com.duyts.tasks.feature.login.loginScreen
 import com.duyts.tasks.feature.login.navigateToLoginScreen
 import com.duyts.tasks.feature.main.homeScreen
 import com.duyts.tasks.feature.profile.profileScreen
-import com.duyts.tasks.feature.splash.SPLASH_ROUTE
-import com.duyts.tasks.feature.splash.splashScreen
 import com.duyts.tasks.feature.taskdetail.navigateTaskDetailNavigation
 import com.duyts.tasks.feature.taskdetail.taskDetail
 

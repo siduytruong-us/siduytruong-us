@@ -27,14 +27,13 @@ fun rememberAppState(
 		navController,
 		coroutineScope
 	) {
-		AppState(navController = navController, coroutineScope = coroutineScope)
+		AppState(navController = navController)
 	}
 }
 
 @Stable
 class AppState(
 	val navController: NavHostController,
-	coroutineScope: CoroutineScope,
 ) {
 	val currentDestination: NavDestination?
 		@Composable get() = navController.currentBackStackEntryAsState().value?.destination
@@ -60,7 +59,6 @@ class AppState(
 		when (topLevelDestination) {
 			TopLevelDestination.HOME -> navController.navigateToHomeScreen(topLevelNavOptions)
 			TopLevelDestination.PROFILE -> navController.navigateToProfileScreen(topLevelNavOptions)
-			else -> {}
 		}
 	}
 }

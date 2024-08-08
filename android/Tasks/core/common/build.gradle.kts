@@ -26,8 +26,13 @@ dependencies {
 	implementation(libs.room.runtime)
 	implementation(libs.room.ktx)
 	ksp(libs.androidx.room.compiler)
-	implementation(libs.androidx.navigation.compose)
+	api(libs.androidx.navigation.compose)
+	api (libs.androidx.hilt.navigation.compose)
 
+//	api ("androidx.compose.material:material-icons-core:1.6.8")
+	api(platform(libs.androidx.compose.bom))
+	api(libs.androidx.ui)
+	api(libs.androidx.material3)
 	//Hilt
 	api(libs.hilt.android)
 	ksp(libs.hilt.compiler)

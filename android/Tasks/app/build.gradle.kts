@@ -74,12 +74,10 @@ dependencies {
 	implementation(libs.room.runtime)
 	implementation(libs.room.ktx)
 	ksp(libs.androidx.room.compiler)
-	implementation(libs.androidx.navigation.compose)
 
 	//Hilt
 	implementation(libs.hilt.android)
 	ksp(libs.hilt.compiler)
-	implementation (libs.androidx.hilt.navigation.compose)
 
 	//DataStore - Proto
 	implementation  (libs.androidx.datastore)
@@ -90,8 +88,10 @@ dependencies {
 	//Glide
 	implementation (libs.glide)
 	implementation (libs.glide.compose)
-
+	implementation(project(":core:common"))
 	implementation(project(":core:database"))
 	implementation(project(":core:data"))
 	implementation(project(":core:datastore"))
+
+	implementation(project(":features:splash"))
 }

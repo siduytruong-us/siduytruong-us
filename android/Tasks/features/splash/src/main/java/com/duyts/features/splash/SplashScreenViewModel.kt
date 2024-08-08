@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.splash
+package com.duyts.features.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
