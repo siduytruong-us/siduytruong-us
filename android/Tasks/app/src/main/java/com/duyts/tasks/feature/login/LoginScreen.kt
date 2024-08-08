@@ -40,9 +40,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.duyts.core.firebase.GoogleAuthResultContract
 import com.duyts.tasks.component.LoadingSpinner
-import com.duyts.tasks.signin.GoogleAuthResultContract
-import com.google.android.gms.common.api.ApiException
 
 
 private const val GOOGLE_AUTH_REQUEST_CODE = 1
@@ -58,6 +57,7 @@ fun LoginScreen(
 		rememberLauncherForActivityResult(
 			contract = GoogleAuthResultContract()
 		) { task ->
+
 			loginViewModel.loginWithGoogle(task)
 			onAuthSuccess.invoke()
 		}

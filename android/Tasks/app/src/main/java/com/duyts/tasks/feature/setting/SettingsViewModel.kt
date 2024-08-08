@@ -2,9 +2,9 @@ package com.duyts.tasks.feature.setting
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.duyts.core.data.repository.UserDataRepository
 import com.duyts.core.datastore.enum.DarkThemeConfig
 import com.duyts.core.datastore.enum.ThemeBrand
-import com.duyts.tasks.repository.UserDataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

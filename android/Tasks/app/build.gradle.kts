@@ -81,11 +81,6 @@ dependencies {
 	ksp(libs.hilt.compiler)
 	implementation (libs.androidx.hilt.navigation.compose)
 
-	//firebase
-	implementation(platform(libs.firebase.bom))
-	implementation (libs.firebase.auth.ktx)
-	implementation(libs.play.services.auth)
-
 	//DataStore - Proto
 	implementation  (libs.androidx.datastore)
 	implementation  (libs.protobuf.kotlin.lite)

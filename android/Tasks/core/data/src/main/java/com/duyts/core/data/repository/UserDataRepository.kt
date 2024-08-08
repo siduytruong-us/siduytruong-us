@@ -1,4 +1,4 @@
-package com.duyts.tasks.repository
+package com.duyts.core.data.repository
 
 
 import com.duyts.core.datastore.enum.DarkThemeConfig

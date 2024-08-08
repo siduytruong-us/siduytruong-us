@@ -2,9 +2,8 @@ package com.duyts.tasks.feature.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.duyts.core.data.repository.AuthenticateRepository
 import com.duyts.core.datastore.model.UserAuthData
-import com.duyts.tasks.model.LocalUserAuthentication
-import com.duyts.tasks.repository.AuthenticateRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

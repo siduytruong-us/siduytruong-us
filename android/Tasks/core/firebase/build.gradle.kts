@@ -5,9 +5,8 @@ plugins {
 }
 
 android {
-	namespace = "com.duyts.core.data"
+	namespace = "com.duyts.core.firebase"
 	compileSdk = 34
-
 	compileOptions {
 		sourceCompatibility = JavaVersion.VERSION_1_8
 		targetCompatibility = JavaVersion.VERSION_1_8
@@ -18,11 +17,12 @@ android {
 }
 
 dependencies {
+
+	//firebase
+	implementation(platform(libs.firebase.bom))
+	implementation(libs.firebase.auth.ktx)
+	implementation(libs.play.services.auth)
+
 	api(project(":core:common"))
-	api(project(":core:database"))
-	api(project(":core:datastore"))
-	api(project(":core:firebase"))
 	ksp(libs.hilt.compiler)
-
-
 }
