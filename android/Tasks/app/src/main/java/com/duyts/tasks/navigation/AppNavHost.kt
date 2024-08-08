@@ -7,10 +7,10 @@ import com.duyts.features.splash.*
 import com.duyts.tasks.AppState
 import com.duyts.tasks.feature.login.loginScreen
 import com.duyts.tasks.feature.login.navigateToLoginScreen
-import com.duyts.tasks.feature.main.homeScreen
 import com.duyts.tasks.feature.profile.profileScreen
 import com.duyts.tasks.feature.taskdetail.navigateTaskDetailNavigation
 import com.duyts.tasks.feature.taskdetail.taskDetail
+import com.duyts.features.home.homeScreen
 
 @Composable
 fun AppNavHost(

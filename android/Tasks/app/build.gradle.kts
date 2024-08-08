@@ -94,4 +94,5 @@ dependencies {
 	implementation(project(":core:datastore"))
 
 	implementation(project(":features:splash"))
+	implementation(project(":features:home"))
 }

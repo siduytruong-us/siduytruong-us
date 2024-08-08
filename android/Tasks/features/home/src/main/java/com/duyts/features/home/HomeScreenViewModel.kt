@@ -1,11 +1,10 @@
-package com.duyts.tasks.feature.main
+package com.duyts.features.home
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.duyts.core.data.model.Task
 import com.duyts.core.data.repository.TaskRepositoryImpl
-import com.duyts.tasks.constant.TasksFilterType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine

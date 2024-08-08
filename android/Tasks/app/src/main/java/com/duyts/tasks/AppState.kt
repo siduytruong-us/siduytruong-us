@@ -10,8 +10,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
-import com.duyts.tasks.feature.main.HOME_SCREEN_ROUTE
-import com.duyts.tasks.feature.main.navigateToHomeScreen
+import com.duyts.features.home.HOME_SCREEN_ROUTE
+import com.duyts.features.home.navigateToHomeScreen
 import com.duyts.tasks.feature.profile.PROFILE_SCREEN_ROUTE
 import com.duyts.tasks.feature.profile.navigateToProfileScreen
 import com.duyts.tasks.navigation.TopLevelDestination
