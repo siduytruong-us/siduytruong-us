@@ -22,12 +22,16 @@ android {
 }
 
 dependencies {
+	//Compose
+	api(libs.androidx.navigation.compose)
+	api (libs.androidx.hilt.navigation.compose)
+	api(libs.androidx.ui.tooling.preview)
+	api(libs.androidx.lifecycle.runtimeCompose)
 	//Room
 	implementation(libs.room.runtime)
 	implementation(libs.room.ktx)
 	ksp(libs.androidx.room.compiler)
-	api(libs.androidx.navigation.compose)
-	api (libs.androidx.hilt.navigation.compose)
+
 
 //	api ("androidx.compose.material:material-icons-core:1.6.8")
 	api(platform(libs.androidx.compose.bom))
@@ -36,4 +40,6 @@ dependencies {
 	//Hilt
 	api(libs.hilt.android)
 	ksp(libs.hilt.compiler)
+
+
 }

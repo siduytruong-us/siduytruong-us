@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.taskdetail
+package com.duyts.features.home.taskdetail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel

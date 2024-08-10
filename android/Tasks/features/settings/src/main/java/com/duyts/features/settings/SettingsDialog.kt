@@ -1,12 +1,10 @@
-package com.duyts.tasks.feature.setting
+package com.duyts.features.settings
 
-import android.content.Intent
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,9 +25,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,8 +33,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.duyts.core.datastore.enum.DarkThemeConfig
 import com.duyts.core.datastore.enum.ThemeBrand
-import com.duyts.tasks.component.NiaTextButton
-import com.duyts.tasks.ui.theme.supportsDynamicTheming
+import com.duyts.core.design.supportsDynamicTheming
 
 @Composable
 fun SettingsDialog(
@@ -47,14 +41,17 @@ fun SettingsDialog(
 	viewModel: SettingsViewModel = hiltViewModel()
 ) {
 	val state by viewModel.settingsUiState.collectAsStateWithLifecycle()
-	SettingsDialog(
-		state = state, onDismiss = onDismiss,
-		onChangeThemeBrand = viewModel::updateThemeBrand,
-		onChangeDynamicColorPreference = viewModel::updateDynamicColorPreference,
-		onChangeDarkThemeConfig = viewModel::updateDarkThemeConfig,
-	)
+	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+		SettingsDialog(
+			state = state, onDismiss = onDismiss,
+			onChangeThemeBrand = viewModel::updateThemeBrand,
+			onChangeDynamicColorPreference = viewModel::updateDynamicColorPreference,
+			onChangeDarkThemeConfig = viewModel::updateDarkThemeConfig,
+		)
+	}
 }
 
+@RequiresApi(Build.VERSION_CODES.HONEYCOMB_MR2)
 @Composable
 fun SettingsDialog(
 	state: SettingUiState,

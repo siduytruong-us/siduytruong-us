@@ -33,11 +33,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
-import com.bumptech.glide.integration.compose.Placeholder
 import com.bumptech.glide.integration.compose.placeholder
-import com.duyts.tasks.R
-import com.duyts.tasks.feature.profile.ProfileItem.*
-import com.duyts.tasks.feature.setting.SettingsDialog
+import com.duyts.features.settings.SettingsDialog
+import com.duyts.tasks.feature.profile.ProfileItem.EDIT_PROFILE
+import com.duyts.tasks.feature.profile.ProfileItem.LOG_OUT
+import com.duyts.tasks.feature.profile.ProfileItem.SETTING
+
 
 @Composable
 fun ProfileScreen(

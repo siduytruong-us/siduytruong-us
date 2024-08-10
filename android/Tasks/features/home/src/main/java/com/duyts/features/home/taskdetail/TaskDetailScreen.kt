@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.duyts.tasks.feature.taskdetail
+package com.duyts.features.home.taskdetail
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

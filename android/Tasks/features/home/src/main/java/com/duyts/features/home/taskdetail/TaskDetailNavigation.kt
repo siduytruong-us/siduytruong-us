@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.taskdetail
+package com.duyts.features.home.taskdetail
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder

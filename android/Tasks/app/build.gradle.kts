@@ -95,4 +95,5 @@ dependencies {
 
 	implementation(project(":features:splash"))
 	implementation(project(":features:home"))
+	implementation(project(":features:settings"))
 }

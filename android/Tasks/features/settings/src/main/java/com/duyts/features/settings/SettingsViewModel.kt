@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.setting
+package com.duyts.features.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

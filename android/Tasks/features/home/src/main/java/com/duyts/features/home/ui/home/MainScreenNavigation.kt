@@ -1,4 +1,4 @@
-package com.duyts.features.home
+package com.duyts.features.home.ui.home
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder

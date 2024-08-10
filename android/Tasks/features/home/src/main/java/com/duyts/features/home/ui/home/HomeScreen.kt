@@ -1,4 +1,4 @@
-package com.duyts.features.home
+package com.duyts.features.home.ui.home
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.duyts.core.data.model.Task
 import com.duyts.core.design.TasksTopAppBar
+import com.duyts.features.home.TasksFilterType
 
 @Composable
 fun HomeScreen(
