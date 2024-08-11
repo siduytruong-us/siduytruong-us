@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.profile
+package com.duyts.features.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -35,9 +35,9 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
 import com.duyts.features.settings.SettingsDialog
-import com.duyts.tasks.feature.profile.ProfileItem.EDIT_PROFILE
-import com.duyts.tasks.feature.profile.ProfileItem.LOG_OUT
-import com.duyts.tasks.feature.profile.ProfileItem.SETTING
+import com.duyts.features.profile.ProfileItem.EDIT_PROFILE
+import com.duyts.features.profile.ProfileItem.LOG_OUT
+import com.duyts.features.profile.ProfileItem.SETTING
 
 
 @Composable

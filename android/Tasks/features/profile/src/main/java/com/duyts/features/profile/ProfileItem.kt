@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.profile
+package com.duyts.features.profile
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp

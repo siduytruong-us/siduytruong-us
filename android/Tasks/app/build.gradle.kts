@@ -85,9 +85,6 @@ dependencies {
 
 	implementation (libs.androidx.core.splashscreen)
 
-	//Glide
-	implementation (libs.glide)
-	implementation (libs.glide.compose)
 	implementation(project(":core:common"))
 	implementation(project(":core:database"))
 	implementation(project(":core:data"))
@@ -95,5 +92,6 @@ dependencies {
 
 	implementation(project(":features:splash"))
 	implementation(project(":features:home"))
-	implementation(project(":features:settings"))
+	implementation(project(":features:profile"))
+
 }

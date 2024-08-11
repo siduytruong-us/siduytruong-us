@@ -12,8 +12,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import com.duyts.features.home.ui.home.HOME_SCREEN_ROUTE
 import com.duyts.features.home.ui.home.navigateToHomeScreen
-import com.duyts.tasks.feature.profile.PROFILE_SCREEN_ROUTE
-import com.duyts.tasks.feature.profile.navigateToProfileScreen
+import com.duyts.features.profile.PROFILE_SCREEN_ROUTE
+import com.duyts.features.profile.navigateToProfileScreen
 import com.duyts.tasks.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
 

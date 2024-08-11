@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.profile
+package com.duyts.features.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

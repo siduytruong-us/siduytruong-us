@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.profile
+package com.duyts.features.profile
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
