@@ -25,6 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -67,7 +68,7 @@ fun SettingsDialog(
 		modifier = Modifier.widthIn(max = configuration.screenWidthDp.dp - 80.dp),
 		title = {
 			Text(
-				text = "Settings",
+				text = stringResource(R.string.alert_dialog_title),
 				style = MaterialTheme.typography.titleLarge,
 			)
 		},
@@ -77,7 +78,7 @@ fun SettingsDialog(
 				when (state) {
 					SettingUiState.Loading -> {
 						Text(
-							text = "Loading...",
+							text = stringResource(R.string.alert_loading),
 							modifier = Modifier.padding(vertical = 16.dp),
 						)
 					}
@@ -108,50 +109,50 @@ private fun ColumnScope.SettingsPanel(
 	onChangeDynamicColorPreference: (useDynamicColor: Boolean) -> Unit,
 	onChangeDarkThemeConfig: (darkThemeConfig: DarkThemeConfig) -> Unit,
 ) {
-	SettingsDialogSectionTitle(text = "Theme")
+	SettingsDialogSectionTitle(text = stringResource(R.string.alert_dialog_theme_section))
 	Column(Modifier.selectableGroup()) {
 		SettingsDialogThemeChooserRow(
-			text = "Default",
+			text = stringResource(R.string.alert_dialog_theme_default_item),
 			selected = settings.brand == ThemeBrand.DEFAULT,
 			onClick = { onChangeThemeBrand(ThemeBrand.DEFAULT) },
 		)
 		SettingsDialogThemeChooserRow(
-			text = "Android",
+			text = stringResource(R.string.alert_dialog_theme_android_item),
 			selected = settings.brand == ThemeBrand.ANDROID,
 			onClick = { onChangeThemeBrand(ThemeBrand.ANDROID) },
 		)
 	}
 	AnimatedVisibility(visible = settings.brand == ThemeBrand.DEFAULT && supportDynamicColor) {
 		Column {
-			SettingsDialogSectionTitle(text = "Use dynamic color")
+			SettingsDialogSectionTitle(text = stringResource(R.string.alert_dialog_dynamic_section))
 			Column(Modifier.selectableGroup()) {
 				SettingsDialogThemeChooserRow(
-					text = "Yes",
+					text = stringResource(R.string.yes),
 					selected = settings.useDynamicColor,
 					onClick = { onChangeDynamicColorPreference(true) },
 				)
 				SettingsDialogThemeChooserRow(
-					text = "No",
+					text = stringResource(R.string.no),
 					selected = !settings.useDynamicColor,
 					onClick = { onChangeDynamicColorPreference(false) },
 				)
 			}
 		}
 	}
-	SettingsDialogSectionTitle(text = "Dark mode preference")
+	SettingsDialogSectionTitle(text = stringResource(R.string.alert_dialog_dark_mode_section))
 	Column(Modifier.selectableGroup()) {
 		SettingsDialogThemeChooserRow(
-			text = "System default",
+			text = stringResource(R.string.system_default),
 			selected = settings.darkThemeConfig == DarkThemeConfig.FOLLOW_SYSTEM,
 			onClick = { onChangeDarkThemeConfig(DarkThemeConfig.FOLLOW_SYSTEM) },
 		)
 		SettingsDialogThemeChooserRow(
-			text = "Light",
+			text = stringResource(R.string.light),
 			selected = settings.darkThemeConfig == DarkThemeConfig.LIGHT,
 			onClick = { onChangeDarkThemeConfig(DarkThemeConfig.LIGHT) },
 		)
 		SettingsDialogThemeChooserRow(
-			text = "Dark",
+			text = stringResource(R.string.dark),
 			selected = settings.darkThemeConfig == DarkThemeConfig.DARK,
 			onClick = { onChangeDarkThemeConfig(DarkThemeConfig.DARK) },
 		)

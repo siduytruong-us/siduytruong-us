@@ -13,9 +13,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -25,6 +27,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.TextStyle
@@ -44,7 +47,6 @@ import com.duyts.features.profile.ProfileItem.SETTING
 fun ProfileScreen(
 	viewModel: ProfileScreenViewModel = hiltViewModel(),
 	onNavigateToEditProfile: (() -> Unit)? = null,
-	onNavigateToSetting: (() -> Unit)? = null,
 	onLogout: (() -> Unit)? = null,
 ) {
 	val state = viewModel.state.collectAsState().value
@@ -90,7 +92,7 @@ private fun ProfileHeader(state: ProfileScreenUiState) {
 					model = userData.photoUrl,
 					loading = placeholder(rememberVectorPainter(image = Icons.Default.Person)),
 					contentDescription = null,
-					modifier = Modifier.size(100.dp)
+					modifier = Modifier.size(100.dp).clip(CircleShape)
 				)
 				Text(text = userData.displayName)
 				Text(text = userData.email)
@@ -138,11 +140,11 @@ private fun ProfileItemComponent(
 				modifier = Modifier
 					.size(30.dp)
 					.padding(4.dp),
-				colorFilter = ColorFilter.tint(item.color)
+				colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary)
 			)
 			Text(
 				text = item.title,
-				style = TextStyle.Default.copy(color = item.color)
+				style = TextStyle.Default
 			)
 		}
 		Image(
