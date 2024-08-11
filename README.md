@@ -9,7 +9,11 @@
 
 </div>
 
-## 🚀💻 Technologies & Tools
+## 💻 Project
+
+![Task Manager](https://github.com/siduytruong-us/siduytruong-us/tree/main/android/Tasks): manage your task to ensure you track your work.
+
+## 🚀 Technologies & Tools
 
   ![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
   ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
