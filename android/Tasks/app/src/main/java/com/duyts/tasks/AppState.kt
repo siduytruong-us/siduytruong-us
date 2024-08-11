@@ -14,7 +14,7 @@ import com.duyts.features.home.ui.home.HOME_SCREEN_ROUTE
 import com.duyts.features.home.ui.home.navigateToHomeScreen
 import com.duyts.features.profile.PROFILE_SCREEN_ROUTE
 import com.duyts.features.profile.navigateToProfileScreen
-import com.duyts.tasks.navigation.TopLevelDestination
+import com.duyts.core.design.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
 
 @Composable

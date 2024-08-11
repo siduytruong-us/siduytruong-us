@@ -1,4 +1,4 @@
-package com.duyts.tasks.component
+package com.duyts.core.design
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.MaterialTheme

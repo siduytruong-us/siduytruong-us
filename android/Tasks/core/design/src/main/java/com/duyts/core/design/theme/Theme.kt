@@ -1,8 +1,9 @@
-package com.duyts.tasks.ui.theme
+package com.duyts.core.design.theme
 
 import android.app.Activity
 import android.os.Build
 import androidx.annotation.ChecksSdkIntAtLeast
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -38,6 +39,7 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 @Composable
 fun TasksTheme(
 	darkTheme: Boolean = isSystemInDarkTheme(),

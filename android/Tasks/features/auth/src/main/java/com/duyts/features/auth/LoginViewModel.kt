@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.login
+package com.duyts.features.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

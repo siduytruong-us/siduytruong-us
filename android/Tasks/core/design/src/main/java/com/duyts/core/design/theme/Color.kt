@@ -1,4 +1,4 @@
-package com.duyts.tasks.ui.theme
+package com.duyts.core.design.theme
 
 import androidx.compose.ui.graphics.Color
 

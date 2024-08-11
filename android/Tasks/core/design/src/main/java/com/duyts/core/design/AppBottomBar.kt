@@ -1,12 +1,12 @@
-package com.duyts.tasks.component
+package com.duyts.core.design
 
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import com.duyts.tasks.navigation.AppNavigationBarItem
-import com.duyts.tasks.navigation.TopLevelDestination
+import com.duyts.core.design.navigation.AppNavigationBarItem
+import com.duyts.core.design.navigation.TopLevelDestination
 
 @Composable
 fun AppBottomBar(

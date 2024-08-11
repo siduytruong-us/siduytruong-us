@@ -1,4 +1,4 @@
-package com.duyts.tasks.component
+package com.duyts.core.design
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

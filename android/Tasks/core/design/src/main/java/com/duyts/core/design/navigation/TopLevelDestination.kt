@@ -1,7 +1,7 @@
-package com.duyts.tasks.navigation
+package com.duyts.core.design.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.duyts.tasks.icons.AppIcon
+import com.duyts.core.common.icons.AppIcon
 
 enum class TopLevelDestination(
 	val selectedIcon: ImageVector,

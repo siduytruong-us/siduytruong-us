@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.login
+package com.duyts.features.auth
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination

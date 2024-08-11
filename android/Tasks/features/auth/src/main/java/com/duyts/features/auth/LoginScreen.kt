@@ -1,4 +1,4 @@
-package com.duyts.tasks.feature.login
+package com.duyts.features.auth
 
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -40,8 +40,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.duyts.core.design.LoadingSpinner
 import com.duyts.core.firebase.GoogleAuthResultContract
-import com.duyts.tasks.component.LoadingSpinner
 
 
 private const val GOOGLE_AUTH_REQUEST_CODE = 1

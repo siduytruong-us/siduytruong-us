@@ -16,7 +16,7 @@ import com.duyts.core.datastore.enum.DarkThemeConfig
 import com.duyts.core.datastore.enum.ThemeBrand
 
 import com.duyts.tasks.ui.MainApp
-import com.duyts.tasks.ui.theme.TasksTheme
+import com.duyts.core.design.theme.TasksTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
