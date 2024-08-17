@@ -3,15 +3,17 @@
 <div style="font-size:4em;">
         
 - 3.4 GPA for Bachelor's Degree and 3.6 GPA for Master of Computer Science
-- 💻 Solved over 600+ LeetCode problems 
+- 💻 Solved over 600+ [LeetCode](https://leetcode.com/u/duytruong-us/) problems 
 - 🔗 You can see my [Linkedin](https://www.linkedin.com/in/siduytruong/)
-- 📫 You can reach me via duytruong0702.us@gmail.com
+- 📫 You can reach me via siduytruong.us@gmail.com
 
 </div>
 
 ## 💻 Project
 
-![Task Manager](https://github.com/siduytruong-us/siduytruong-us/tree/main/android/Tasks): manage your task to ensure you track your work.
+[Task Manager](https://github.com/siduytruong-us/task-manager)
+- **Usage**: manage your tasks to ensure you track your work.
+- **Technologies**: MVVM Clean Architecture, Hilt, Firebase GCP, Authentication && Sync data, Unit testing, Fastlane
 
 ## 🚀 Technologies & Tools
 
