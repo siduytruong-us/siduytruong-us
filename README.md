@@ -15,6 +15,9 @@
 - **Usage**: manage your tasks to ensure you track your work.
 - **Technologies**: MVVM Clean Architecture, Hilt, Firebase GCP, Authentication && Sync data, Unit testing, Fastlane
 
+<img src="https://github.com/siduytruong-us/android-task-manager-mvvm/blob/main/github/app_demo.gif" alt="drawing" width="300"/>
+
+
 [Smart Devices Controller](https://github.com/siduytruong-us/smart-devices)
 - **Usage**: controlling smart devices.
 - **Technologies**: MVVM Clean Architecture, Hilt, Firebase GCP, Authentication && Sync data, Unit testing, Fastlane
