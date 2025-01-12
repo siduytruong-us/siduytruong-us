@@ -15,6 +15,10 @@
 - **Usage**: manage your tasks to ensure you track your work.
 - **Technologies**: MVVM Clean Architecture, Hilt, Firebase GCP, Authentication && Sync data, Unit testing, Fastlane
 
+[Task Manager](https://github.com/siduytruong-us/smart-devices)
+- **Usage**: controlling smart devices.
+- **Technologies**: MVVM Clean Architecture, Hilt, Firebase GCP, Authentication && Sync data, Unit testing, Fastlane
+
 ## 🚀 Technologies & Tools
 
   ![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)
