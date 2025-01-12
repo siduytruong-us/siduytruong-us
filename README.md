@@ -57,8 +57,8 @@
 <br>
 
 <p align="center"> 
-  <a href = "https://leetcode.com/u/duytruong-us/">
-    <img src= "https://leetcard.jacoblin.cool/duytruong-us?theme=dark&font=Lato&ext=heatmap"/>
+  <a href = "https://leetcode.com/u/christruong-us/">
+    <img src= "https://leetcard.jacoblin.cool/christruong-us?theme=dark&font=Lato&ext=heatmap"/>
   </a>
 </p> 
 
@@ -66,7 +66,7 @@
 
 
 <div align="center">
-  <a href="https://leetcode.com/u/duytruong-us/"><img src="https://img.shields.io/badge/-Leetcode-2EC866?style=for-the-badge&logo=LeetCode&logoColor=white" alt="LeetCode">
+  <a href="https://leetcode.com/u/christruong-us/"><img src="https://img.shields.io/badge/-Leetcode-2EC866?style=for-the-badge&logo=LeetCode&logoColor=white" alt="LeetCode">
   </a>  
   <a href="https://www.linkedin.com/in/siduytruong/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
   </a>
