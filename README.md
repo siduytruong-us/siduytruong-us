@@ -16,6 +16,7 @@
 - **Technologies**: MVVM Clean Architecture, Hilt, Firebase GCP, Authentication && Sync data, Unit testing, Fastlane
 
 [Smart Devices Controller](https://github.com/siduytruong-us/smart-devices)
+
 <img src="https://github.com/siduytruong-us/smart-devices/blob/main/github/demo.gif?raw=true" alt="drawing" width="300"/>
 - **Usage**: controlling smart devices.
 - **Technologies**: MVVM Clean Architecture, Hilt, Firebase GCP, Authentication && Sync data, Unit testing, Fastlane
